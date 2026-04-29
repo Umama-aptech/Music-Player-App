@@ -95,7 +95,7 @@ button {
     flex-wrap: wrap;
 }
 .top-logo {
-    display: none;
+    display: flex;
     color: #fff;
     font-size: 18px;
     font-weight: 700;
@@ -119,6 +119,7 @@ button {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    margin-left: auto;
 }
 .sign-up,
 .login {
@@ -517,6 +518,81 @@ button {
         aspect-ratio: 1 / 1;
         width: 100%;
         object-fit: cover;
+    }
+}
+
+@media (max-width: 860px) {
+    /* Responsive overrides for play/song pages that use fixed sidebar/main layout */
+    .sidebar,
+    .sidebar2,
+    .sidebar-nav {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 18px !important;
+    }
+    .main-section {
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        min-height: auto !important;
+        height: auto !important;
+        padding: 18px !important;
+    }
+    .top-nav {
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+        padding: 16px !important;
+    }
+    .top-nav .top-logo {
+        order: 0 !important;
+        flex: 1 1 auto !important;
+        justify-content: flex-start !important;
+    }
+    .top-nav .login-btn {
+        order: 2 !important;
+        width: auto !important;
+        justify-content: flex-end !important;
+        margin-left: auto !important;
+    }
+    .top-nav .prev-btn {
+        order: 1 !important;
+    }
+    .background {
+        height: auto !important;
+        min-height: 240px !important;
+        background-position: center !important;
+    }
+    .background h1 {
+        font-size: clamp(2rem, 5vw, 4rem) !important;
+        margin-top: 25% !important;
+    }
+    .content {
+        position: static !important;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        padding: 18px !important;
+    }
+    .footer-content {
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+    .footer-section {
+        width: 100% !important;
+        padding: 12px 0 !important;
     }
     .footer-content {
         flex-direction: column;
