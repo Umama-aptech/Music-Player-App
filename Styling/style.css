@@ -163,7 +163,7 @@ button {
 }
 .item img {
     width: 100%;
-    height: 220px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     display: block;
 }
@@ -253,15 +253,13 @@ button {
 .spotify-radio .card {
     justify-content: flex-start;
 }
-.spotify-artist .item img {
-    height: 180px;
-    border-radius: 50%;
-}
-.spotify .item img {
-    height: 170px;
-}
+.spotify-artist .item img,
+.spotify .item img,
 .spotify-radio .item img {
-    height: 180px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
 }
 .spotify-artist .item p,
 .spotify .item p,
@@ -494,7 +492,9 @@ button {
     .spotify-artist .item img,
     .spotify .item img,
     .spotify-radio .item img {
-        height: 180px;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        object-fit: cover;
     }
     .footer-content {
         flex-direction: column;
