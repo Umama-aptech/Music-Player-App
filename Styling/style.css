@@ -480,6 +480,7 @@ button {
         width: 100%;
     }
     .border{
+        border-color: aqua !important;
         border: 2px solid wheat !important;
     }
 }
