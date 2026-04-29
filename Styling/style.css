@@ -479,10 +479,9 @@ button {
         margin-left: 0;
         width: 100%;
     }
-    .text-light{
-    border-radius: 100px !important;
-    border-color: white;
-    border-width: 1px;
+    .border{
+        border-color: aqua !important;
+        border: 2px solid wheat !important;
     }
 }
 
