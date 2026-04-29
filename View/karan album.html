@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="music style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styling/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+ <style>
+    
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+margin-top: 0%;
+background:rgb(14, 13, 13);
+font-family: "Poppins", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+}
+.sidebar{
+
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    list-style: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.sidebar-nav{
+    position: fixed;
+    width: 280px;
+    background:rgb(37, 36, 36);
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-bottom:5px;
+    
+    
+}
+.sidebar-nav ul li{
+    padding: 10px 20px;
+}
+.sidebar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+}
+.sidebar ul li a i{
+font-size: 20px;
+margin-right: 10px;
+    
+}
+.popular{
+    color: white;
+    font-size: 40px;
+    margin: 10px;
+    font-size: 50px;
+    font-style: italic;
+    
+}
+    .popular:hover{
+    text-decoration: underline;
+    color: rgb(68, 68, 68);
+
+    }
+    
+
+
+
+
+
+
+.main-section{
+position: relative;
+margin-left: 300px;
+margin-top: -37px;
+background-color: rgb(25, 24, 24);
+height: 170vh;
+}
+.main-section .top-nav{
+padding: 15px 20px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.top-nav{
+background-color: rgb(34, 33, 33);
+height: 50px;
+}
+.prev-btn button{
+    color: aliceblue;
+    background-color: black;
+    padding: 10px 15px;
+    border-radius: 70%;
+    
+    
+
+}
+
+
+.sign-up{
+width: 80px;
+height: 40px;
+border-radius: 40px;
+
+background-color: rgb(99, 98, 98);
+border: 1px solid black;
+}
+.sign-up:hover{
+background-color: rgb(46, 45, 45);
+color: white;
+}
+
+.login{
+width: 80px;
+height: 40px;
+border-radius: 40px;
+background-color: rgb(99, 98, 98);
+border: 1px solid black;
+
+}
+.login:hover{
+background-color: rgb(46, 45, 45);
+color: white;
+}
+.sidebar2{
+    position: fixed;
+    background:rgb(37, 36, 36);
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-top: 160px;
+    margin-bottom:6px;
+    
+    
+}
+
+.side-logo{
+font-size: 40px;
+color: aliceblue;
+}
+
+
+.big-footer {
+    position: relative;
+    left:300px;
+    bottom: 0;
+    width: 77%;
+    background-color: rgb(33, 32, 32);
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    width: 20%;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+.footer-section h1 {
+    font-size: 25px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #fff; /* Replace with your icon images */
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #666;
+}
+
+.footer-bottom p {
+    font-size: 17px;
+}
+.songname{
+        position:absolute; 
+        color: gray;
+        
+    }
+    .songname:hover{
+        color: #fff;
+    }
+   
+    .background {
+    background-image: url('https://culturehaze.com/wp-content/uploads/2022/11/Karan-Aujla-New-Music-Releasing-This-Week.jpg'); 
+    width: 100%;
+    background-position: center;
+    object-position: center;
+    background-size: cover;
+  
+    height: 350px;
+    overflow: hidden;
+  }
+  .background h1{
+    color: white;
+    font-size: 80px;
+    margin-top: 22%;
+  }
+  .content{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    float: left;
+    width: 100%;
+    font-size: 10px;
+    color: white;
+  }
+  .scroll-text {
+    font-size: 15px;
+    line-height: 1.3;
+    overflow-y: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+  
+  .songslist h3{
+   
+    margin-bottom: 30px;
+    
+  }
+  .song {
+    margin-bottom: 20px;
+    margin: 20px;
+  
+   
+  }
+  .song:hover{
+    background-color: rgb(54, 54, 54);
+    width: 98%;
+    height: 80px;
+    margin:1%;
+    
+ 
+  }
+  
+  .dropdown-menu{
+    background-color: rgb(73, 72, 72);
+    color: rgb(19, 19, 19);
+   
+   
+ }
+ 
+
+
+
+
+ </style>
+
+  
+ 
+      <br>
+    
+        <div class="sidebar">
+            <div  class="sidebar-nav">  
+              <div class="side-logo">
+                <h4>Spotify</h4>
+              </div>          
+                <ul>
+                    <li><a href="chal.html">
+                        <span><i class="fa-solid fa-house"></i></span>
+                        <span>Home</span>
+                    </a></li>
+                    <li><a href="">
+                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <span>Search</span>
+                    </a></li>
+                                                    
+            
+                </ul>
+         </div>
+         <div style="position: fixed; width: 280px; height: 500px;" class="sidebar2">
+            <ul>
+
+                <li>
+                    <h4 class="popular">
+                    <ul>                                  
+                     
+                      <li><a href="about page m.html">
+                          <span>About Us</span>
+                      </a></li>
+                      <li><a href="album.html">
+                          <span>Album</span>
+                      </a></li>
+                      <li><a href="artist.html">
+                          <span>Artist</span>
+                      </a></li>
+                      <li><a href="year.html">
+                          <span>Year</span>
+                      </a></li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Language
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a  href="#">English</a></li>
+                          <li><a  href="#">Urdu</a></li>                    
+                          <li><a  href="#">Singh</a></li>
+                        </ul>
+                      </li>
+                  </ul>
+                </h4> 
+                
+                </li>
+            </ul>
+        </div>
+           
+        </div>        
+ 
+    <br>
+    <div  class="main-section">
+        
+       
+       <!-- ARTIST PAGES 1-->
+    <div  class="background mt-10">
+        <h1>Karan Aujla</h1>
+        <div class="content">
+             <div class="scroll-text">
+                <div class="songslist">
+                    <h3>Popular albums</h3>
+
+                    <div class="songs">
+                 
+                    <div class="song d-flex justify-content-between  align-items-center">
+                  
+                        <a href="#"><p  style="font-style: italic;"  class="songname">Tauba Tauba <br>by Karan Aujla,arjit singh.</p></a>
+                        
+                          
+                          
+                            <p>3:53</p>
+                           
+                    </div>
+                    <div class="song d-flex justify-content-between  align-items-center">
+                       
+                            <a href="#"><p  style="font-style: italic;"  class="songname">Making Memories<br>by Karan anjla  new album</p></a>
+                              
+                              
+                                <p>3:53</p>
+                               
+                        </div>
+                        <div class="song d-flex justify-content-between  align-items-center">
+                      
+                                <a href="#"><p style="font-style: italic;" class="songname">Mix Tape<br>by karan anjla</p></a>
+                                  
+                                  
+                                    <p>4:53</p>
+                                   
+                        </div>
+                           
+                    </div>   
+                    <div class="song d-flex justify-content-between  align-items-center">
+                        
+                            <a href="#"><p  style="font-style: italic;"  class="songname">Hit mix mashup<br>by Asim azhar,karan aujla</p></a>
+                              
+                              
+                                <p>3:53</p>
+                               
+                        </div>
+                       
+                           
+                    </div>   
+                    
+                </div>
+            </div>
+   
+        </div>
+
+    </div>
+    
+
+
+   
+   
+</body>
+</html>

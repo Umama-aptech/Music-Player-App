@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Music Video Playlist</title>
+    <style>
+        /* Basic reset and container setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(42, 41, 41);
+    color: #1f1e1e;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-player {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playlist ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.playlist li {
+    padding: 10px;
+    background: #fff;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.playlist li:hover {
+    background: #e0e0e0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .playlist {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .playlist li {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Music Video</h1>
+        </header>
+        
+        <main>
+            <div class="video-player">
+                <video id="video-player" controls>
+                    <source id="video-source" src="dunki-o-maahi-full-video.mp4" type="video/mp4">
+                   
+                </video>
+            </div>
+           
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

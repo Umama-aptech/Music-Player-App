@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="music style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styling/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+ <style>
+    
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+margin-top: 0%;
+background:rgb(14, 13, 13);
+font-family: "Poppins", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+}
+.sidebar{
+
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    list-style: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.sidebar-nav{
+    position: fixed;
+    width: 280px;
+    background:rgb(37, 36, 36);
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-bottom:5px;
+    
+    
+}
+.sidebar-nav ul li{
+    padding: 10px 20px;
+}
+.sidebar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+}
+.sidebar ul li a i{
+font-size: 20px;
+margin-right: 10px;
+    
+}
+.popular{
+    color: white;
+    font-size: 40px;
+    margin: 10px;
+    font-size: 50px;
+    font-style: italic;
+    
+}
+    .popular:hover{
+    text-decoration: underline;
+    color: rgb(68, 68, 68);
+
+    }
+    
+
+
+
+
+
+
+.main-section{
+position: relative;
+margin-left: 300px;
+margin-top: -37px;
+background-color: rgb(25, 24, 24);
+height: 170vh;
+}
+.main-section .top-nav{
+padding: 15px 20px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.top-nav{
+background-color: rgb(34, 33, 33);
+height: 50px;
+}
+.prev-btn button{
+    color: aliceblue;
+    background-color: black;
+    padding: 10px 15px;
+    border-radius: 70%;
+    
+    
+
+}
+
+
+.sign-up{
+width: 80px;
+height: 40px;
+border-radius: 40px;
+
+background-color: rgb(99, 98, 98);
+border: 1px solid black;
+}
+.sign-up:hover{
+background-color: rgb(46, 45, 45);
+color: white;
+}
+
+.login{
+width: 80px;
+height: 40px;
+border-radius: 40px;
+background-color: rgb(99, 98, 98);
+border: 1px solid black;
+
+}
+.login:hover{
+background-color: rgb(46, 45, 45);
+color: white;
+}
+.sidebar2{
+    position: fixed;
+    background:rgb(37, 36, 36);
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-top: 160px;
+    margin-bottom:6px;
+    
+    
+}
+
+.side-logo{
+font-size: 40px;
+color: aliceblue;
+}
+
+
+.big-footer {
+    position: relative;
+    left:300px;
+    bottom: 0;
+    width: 77%;
+    background-color: rgb(33, 32, 32);
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    width: 20%;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+.footer-section h1 {
+    font-size: 25px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #fff; /* Replace with your icon images */
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #666;
+}
+
+.footer-bottom p {
+    font-size: 17px;
+}
+.songname{
+        position:relative; 
+        z-index: 100;
+    }
+    .background {
+    background-image: url('https://images.lifestyleasia.com/wp-content/uploads/sites/5/2023/09/21235525/singer-shubh-1600x900.jpeg'); 
+    width: 100%;
+    background-position: center;
+    object-position: center;
+    background-size: cover;
+  
+    height: 350px;
+    overflow: hidden;
+  }
+  .background h1{
+    color: white;
+    font-size: 100px;
+    margin-top: 20%;
+  }
+  .content {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    float: left;
+    width: 100%;
+    font-size: 10px;
+    color: white;
+  }
+  .scroll-text {
+    font-size: 15px;
+    line-height: 1.3;
+    overflow-y: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+  
+  .songslist h3{
+    margin: 20px 5px;
+    
+  }
+  .song {
+    margin-bottom: 15px;
+    margin: 20px;
+  
+   
+  }
+  .song:hover{
+    background-color: rgb(54, 54, 54);
+    width: 98%;
+    height: 50px;
+  }
+  .song img{
+    width: 45px;
+    border-radius: 8px;
+  }
+  .dropdown-menu{
+    background-color: rgb(73, 72, 72);
+    color: rgb(19, 19, 19);
+   
+   
+ }
+
+
+
+ .modal-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            max-width: 800px;
+            background-color: #000;
+            z-index: 1001;
+            display: none;
+        }
+        .modal-video video {
+            width: 100%;
+            height: auto;
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 24px;
+        }
+ </style>
+
+  
+ 
+      <br>
+    
+        <div class="sidebar">
+            <div  class="sidebar-nav">  
+              <div class="side-logo">
+                <h4>Spotify</h4>
+              </div>          
+                <ul>
+                    <li><a href="index.html">
+                        <span><i class="fa-solid fa-house"></i></span>
+                        <span>Home</span>
+                    </a></li>
+                    <li><a href="search2.php">
+                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <span>Search</span>
+                    </a></li>
+                                                    
+            
+                </ul>
+         </div>
+         <div style="position: fixed; width: 280px; height: 500px;" class="sidebar2">
+            <ul>
+
+                <li>
+                    <h4 class="popular">
+                    <ul>                                  
+                     
+                      <li><a href="about page m.html">
+                          <span>About Us</span>
+                      </a></li>
+                      <li><a href="album.html">
+                          <span>Album</span>
+                      </a></li>
+                      <li><a href="artist.html">
+                          <span>Artist</span>
+                      </a></li>
+                      <li><a href="year.html">
+                          <span>Year</span>
+                      </a></li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Language
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a  href="#">English</a></li>
+                          <li><a  href="#">Urdu</a></li>                    
+                          <li><a  href="#">Singh</a></li>
+                        </ul>
+                      </li>
+                  </ul>
+                </h4> 
+                
+                </li>
+            </ul>
+        </div>
+           
+        </div>        
+ 
+    <br>
+    <div  class="main-section">
+        <div class="top-nav">
+            <div class="prev-btn">
+                <button><i class="fa-solid fa-chevron-left"></i></button>
+                <button><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="login-btn">
+            <a href="#"><button class="sign-up">sign-up</button></a>
+            <a href="#"><button class="login">login</button></a>
+            </div>
+        </div>
+       <!-- ARTIST PAGES 1-->
+    <div  class="background mt-10">
+        <h1>Still Rollin</h1>
+        <div class="content">
+             <div class="scroll-text">
+                <div class="songslist">
+                    <h3>Popular Songs</h3>
+
+                    <div class="songs">
+                 
+                    <div class="song d-flex justify-content-between  align-items-center">
+                    <!-- Inside artist.html (located in view/artist-songs/artist) -->
+                    <a href="" class="open-modal" data-video="../songs folder/we-rollin-official-audio-shubh.mp4">
+
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDUFh-iT7PJrYfY1JAhBgPURABBlsjb5o2IQ&s" alt="Artist Image"> </a>
+                            <p class="songname">subha</p>
+                            <p>133,705,863</p>
+                            <p>3:53</p>
+                           
+                    </div>
+                    <div class="song d-flex justify-content-between  align-items-center">
+                        <!-- Inside artist.html (located in view/artist-songs/artist) -->
+                        <a href="#" class="open-modal" data-video="../dunki-o-maahi-full-video.mp4">
+
+                        <img src="https://i1.sndcdn.com/artworks-TjLTmi9loEeCCUz5-s2ti4w-t500x500.jpg" alt="Artist Image">
+                        </a>
+                        <p class="songname">still rollin</p>
+                        <p>133,705,863</p>
+                        <p>3:53</p>
+                        
+                    </div>
+                    <div class="song d-flex justify-content-between  align-items-center">
+                        <!-- Inside artist.html (located in view/artist-songs/artist) -->
+                        <a href="#" class="open-modal" data-video="../dunki-o-maahi-full-video.mp4">
+
+                        <img style="height: 46px;" src="https://i.ytimg.com/vi/KhKujQ51oqI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAreRUEub1fTIqRaZVXJcUgSv0Yng" alt="Artist Image">
+                        </a>
+                        <p class="songname">ice</p>
+                        <p>133,705,863</p>
+                        <p>3:53</p>
+                        
+                    </div>
+                        
+
+                    
+                
+                </div>   
+        
+            </div>
+   
+        </div>
+
+    </div>
+
+
+<!-- Modal for Video -->
+<div class="modal-video">
+    <span class="close-modal">&times;</span>
+    <video controls>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- jQuery and Bootstrap Bundle with Popper.js -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Open modal on image click
+        $('.open-modal').click(function(e) {
+            e.preventDefault();
+            var videoSrc = $(this).data('video');
+            $('.modal-video video').attr('src', videoSrc);
+            $('.modal-video').fadeIn();
+        });
+
+        // Close modal
+        $('.close-modal').click(function() {
+            $('.modal-video').fadeOut();
+            $('.modal-video video').attr('src', '');
+        });
+    });
+</script>
+   
+   
+</body>
+</html>
