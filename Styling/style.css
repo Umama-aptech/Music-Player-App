@@ -479,6 +479,9 @@ button {
         margin-left: 0;
         width: 100%;
     }
+    .rounded-pill{
+    border-radius: 100px !important;
+    }
 }
 
 @media (max-width: 640px) {
