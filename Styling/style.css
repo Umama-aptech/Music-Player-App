@@ -481,6 +481,8 @@ button {
     }
     .rounded-pill{
     border-radius: 100px !important;
+    border-color: white;
+    border-width: 1px;
     }
 }
 
