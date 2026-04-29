@@ -92,6 +92,14 @@ button {
     background: #222121;
     border-radius: 18px;
     margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+.top-logo {
+    display: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
 }
 .prev-btn button {
     color: #fff;
@@ -141,7 +149,7 @@ button {
 
 .card {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 .item {
@@ -153,6 +161,7 @@ button {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 .item:hover {
     transform: translateY(-6px);
@@ -430,26 +439,40 @@ button {
     .menu-toggle {
         display: inline-flex;
     }
+    .top-logo {
+        display: inline-flex;
+    }
     .main-section {
         margin-left: 0;
     }
     .top-nav {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
-    .login-btn {
+    .prev-btn {
+        order: 3;
         width: 100%;
+        margin-top: 12px;
+        display: flex;
+        gap: 10px;
         justify-content: flex-start;
     }
+    .login-btn {
+        order: 4;
+        width: auto;
+        margin-top: 12px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
     .card {
-        justify-content: center !important;
-        flex-wrap: wrap !important;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
     }
     .item {
-        flex: 1 1 calc(50% - 20px) !important;
-        max-width: calc(50% - 20px) !important;
-        min-width: 220px !important;
-        width: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0;
     }
     .big-footer {
         margin-left: 0;
@@ -459,11 +482,10 @@ button {
 
 @media (max-width: 640px) {
     .card {
-        flex-direction: column;
-        align-items: stretch;
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
     }
     .item {
-        flex: 1 1 100% !important;
+        width: 100% !important;
         max-width: 100% !important;
         min-width: 0;
     }
