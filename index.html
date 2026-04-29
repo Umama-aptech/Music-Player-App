@@ -9,7 +9,7 @@
     <title>Responsive Music Page</title>
 </head>
 <body>
-    <div class="sidebar">
+    <div class="sidebar mobile-hidden">
         <div class="sidebar-nav">  
             <div class="side-logo">
                 <h4>UA Music player</h4>
@@ -49,9 +49,11 @@
         </div>
             <ul>
             </ul>
-    </div>     
+    </div>
+    <div class="page-overlay"></div>
     <div class="main-section">
         <div class="top-nav">
+            <button class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
             <div class="prev-btn">
                 <button><i class="fa-solid fa-chevron-left"></i></button>
                 <button><i class="fa-solid fa-chevron-right"></i></button>
@@ -269,5 +271,31 @@
             <p>&copy; 2024 Your Company. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const pageOverlay = document.querySelector('.page-overlay');
+        const menuIcon = menuToggle ? menuToggle.querySelector('i') : null;
+
+        if (menuToggle && sidebar && pageOverlay && menuIcon) {
+            const toggleSidebar = () => {
+                sidebar.classList.toggle('sidebar-open');
+                pageOverlay.classList.toggle('visible');
+                menuToggle.classList.toggle('open');
+                menuIcon.classList.toggle('fa-bars');
+                menuIcon.classList.toggle('fa-xmark');
+            };
+
+            menuToggle.addEventListener('click', toggleSidebar);
+
+            pageOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('sidebar-open');
+                pageOverlay.classList.remove('visible');
+                menuToggle.classList.remove('open');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-xmark');
+            });
+        }
+    </script>
 </body>
 </html>
