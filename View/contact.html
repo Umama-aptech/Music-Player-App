@@ -1,110 +1,197 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Contact Page</title>
-   <style>
-    body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    
-   background: url(https://img.freepik.com/free-vector/music-notes-background_23-2151339669.jpg);
-  
-}
-
-
-.contact-container {
-    font-style: italic;
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-out;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-}
-
-input:focus, textarea:focus {
-    border-color: #007bff;
-}
-
-button {
-    font-style: italic;
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #03c2fc ;
-    background: #007bff;
-    color: white;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-   </style>
+    <title>Contact | UA Music Player</title>
+    <link rel="stylesheet" href="../Styling/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: #0e0d0d;
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+        }
+        .contact-wrapper {
+            padding: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .contact-block {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 28px;
+            background: #171717;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 28px 60px rgba(0,0,0,0.25);
+        }
+        .contact-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 22px;
+        }
+        .contact-side h2 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .contact-side p {
+            color: #c9c9c9;
+            line-height: 1.8;
+        }
+        .contact-detail {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 22px;
+            padding: 22px;
+            display: grid;
+            gap: 16px;
+        }
+        .contact-detail div {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .contact-detail i {
+            color: #1fdf64;
+            font-size: 18px;
+            min-width: 28px;
+            text-align: center;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 16px 18px;
+            background: #111;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .contact-form textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        .contact-form button {
+            width: 100%;
+            padding: 16px 18px;
+            border-radius: 999px;
+            border: none;
+            background: #1fdf64;
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .contact-form button:hover {
+            background: #18c957;
+        }
+        @media (max-width: 860px) {
+            .contact-block {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 520px) {
+            .contact-wrapper {
+                padding: 18px;
+            }
+            .contact-block {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
-    
-    <div class="contact-container">
-        <h1>Contact Us</h1>
-        <form id="contactForm">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" id="submitButton">Send</button>
-        </form>
+    <div class="sidebar mobile-hidden">
+        <div class="sidebar-nav">
+            <div class="side-logo"><h4>UA Music Player</h4></div>
+            <ul>
+                <li><a href="../index.html"><span><i class="fa-solid fa-house"></i></span><span>Home</span></a></li>
+                <li><a href="search2.php"><span><i class="fa-solid fa-magnifying-glass"></i></span><span>Search</span></a></li>
+                <li><a href="about page m.html"><span><i class="fa-solid fa-address-card"></i></span><span>About Us</span></a></li>
+                <li><a href="artist.html"><span><i class="fa-solid fa-address-card"></i></span><span>Artist</span></a></li>
+                <li><a href="year.html"><span><i class="fa-sharp fa-regular fa-calendar-days"></i></span><span>Year</span></a></li>
+                <li><a href="album.html"><span><i class="fa-solid fa-compact-disc"></i></span><span>Album</span></a></li>
+                <li><a href="contact.html"><span><i class="fa-regular fa-phone"></i></span><span>Contact</span></a></li>
+            </ul>
+        </div>
     </div>
-    <script src="contact .js"></script>
+    <div class="page-overlay"></div>
+    <div class="main-section">
+        <div class="top-nav">
+            <button class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+            <div class="top-logo">UA Music Player</div>
+            <div class="login-btn">
+                <a href="signup.html"><button class="sign-up">Sign Up</button></a>
+                <a href="login.php"><button class="login">Login</button></a>
+            </div>
+        </div>
+        <div class="contact-wrapper">
+            <div class="section-block">
+                <h4>Contact Us</h4>
+                <p>Need help or want to say hi? Send your message and we’ll get back to you soon.</p>
+            </div>
+            <div class="contact-block">
+                <div class="contact-side">
+                    <h2>Get in touch</h2>
+                    <p>Our music support team is ready to help whether you have a question, feedback, or want to report an issue.</p>
+                    <div class="contact-detail">
+                        <div><i class="fa-solid fa-envelope"></i><span>support@uamusicplayer.com</span></div>
+                        <div><i class="fa-solid fa-phone"></i><span>+92 300 123 4567</span></div>
+                        <div><i class="fa-solid fa-map-location-dot"></i><span>Karachi, Pakistan</span></div>
+                    </div>
+                </div>
+                <form class="contact-form" action="#" method="post">
+                    <input type="text" name="name" placeholder="Your name" required>
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" placeholder="Write your message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const pageOverlay = document.querySelector('.page-overlay');
+        const menuIcon = menuToggle ? menuToggle.querySelector('i') : null;
+        if (menuToggle && sidebar && pageOverlay && menuIcon) {
+            const closeMenu = () => {
+                sidebar.classList.remove('sidebar-open');
+                pageOverlay.classList.remove('visible');
+                menuToggle.classList.remove('open');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-xmark');
+            };
+            const openMenu = () => {
+                sidebar.classList.add('sidebar-open');
+                pageOverlay.classList.add('visible');
+                menuToggle.classList.add('open');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            };
+            menuToggle.addEventListener('click', () => {
+                if (sidebar.classList.contains('sidebar-open')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+            pageOverlay.addEventListener('click', closeMenu);
+        }
+    </script>
 </body>
 </html>

@@ -1,507 +1,192 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="music style.css">
-   <link rel="stylesheet" href="../Styling/style.css">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <title>Document</title>
+    <title>Albums | UA Music Player</title>
+    <link rel="stylesheet" href="../Styling/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <style>
-    *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-background:rgb(14, 13, 13);
-font-family: "Poppins", sans-serif;
-font-weight: 400;
-font-style: normal;
-    
-}
-    .sidebar{
-   
-        width: 300px;
-        height: 00px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        padding: 10px;
-    }
-    
-    .sidebar-nav{
-        position: fixed;
-        width: 280px;
-        background:rgb(37, 36, 36);
-        border-radius: 10px;
-        padding: 9px 10px;
-        margin-bottom:10px;
-        
-        
-    }
-    .sidebar-nav ul li{
-        padding: 10px 20px;
-    }
-    .sidebar ul li a{
-        text-decoration: none;
-        color: white;
-        font-size: 15px;
-        font-weight: 700;
-    }
-    .sidebar ul li a i{
-    font-size: 20px;
-    margin-right: 10px;
-        
-    }
-    .popular{
-        color: white;
-        font-size: 40px;
-        margin: 40px;
-        font-style: italic;
-        
-    }
-        .popular:hover{
-        text-decoration: underline;
-        color: rgb(229, 232, 232);
-        }
-
-        .spotify{
-            padding: 10px 20px;
-        }
-        .spotify h4{
-            color: aliceblue;
-            font-size: 20px;
-            margin-bottom: 1%;
-        }
-        .spotify .card{
-            display: flex;
-            gap: 20px;       
-            overflow: hidden;
-
-        }
-     
-        .spotify .card .item{
-            width: 250px;
-            min-height: 100px;
-            cursor: pointer;
-            padding: 10px;
-           
-        }  
-         .spotify .card .item:hover{
-          background-color: rgb(43, 42, 42);
-          height: 290px;
-          border-radius: 10px;
-      
-        
-         
-        }
-        .spotify .card .item img{
-            border-radius: 10px;
-            width: 100%;
-            height: 160px;
-            
-        }
-        .spotify .card .item h4{
-          margin-top: 10%;
-            font-size: 20px;
-
-        }
-        
-        .spotify .card .item p{
-            color: white;
-            font-size:13px;
-        }
-        .spotify .card .item p:hover{
-            text-decoration: underline;
-            
-        }
-        .spotify .play-btn{
-            position: relative;
-         }
-         .spotify .play-btn i{
-            position: absolute;
-            background-color: rgb(3, 255, 3);
-            border-radius: 50%;          
-            padding: 10px;
-            right: 10px;
-            top: -60%;
-            opacity: 0;
-        }
-        .spotify .card .item:hover .play-btn i{
-          opacity: 1;
-       
-        }
-  
-  
-  
-   .main-section{
-
-    position: relative;
-    margin-top: -60px;
-    margin-left: 300px;
-    background-color: rgb(25, 24, 24);
-    height: 220vh;
-   
-   }
-.main-section .top-nav{
-padding: 10px 20px;
-background: rgb(34, 33, 33);
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-   .top-nav{
-    background-color: rgb(34, 33, 33);
-    height: 50px;
-   }
-   .top-nav .login-btn{
-    float: right;
-    margin: 6px;
-   }
-  .sign-up{
-    width: 80px;
-    height: 40px;
-    border-radius: 40px; 
-    background-color:white;
-    border: 1px solid white;
-   }
-   .sign-up:hover{
-    background-color: rgb(46, 45, 45);
-    color: white;
-   }
-
-   .login{
-    width: 80px;
-    height: 40px;
-    border-radius: 40px;
-    background-color: white;
-    border: 1px solid white;
-
-   }
-   .sidebar2{
-        position: fixed;
-        background:rgb(37, 36, 36);
-        border-radius: 10px;
-        padding: 5px 10px;
-        margin-top: 170px;
-        margin-bottom:5px;
-        
-        
-    }
-    .prev-btn button{
-    color: aliceblue;
-    background-color: black;
-    padding: 10px 14px;
-    border-radius: 70%;
-    
-    
-
-}
-  .login:hover{
-    background-color: rgb(46, 45, 45);
-    color: white;
-  }
-  .side-logo{
-    font-size: 40px;
-    color: aliceblue;
-  }
-
-  
-  </style>
-  <br>
- 
-      <br>
-      <div class="sidebar">
-        <div class="sidebar-nav">  
-            <div class="side-logo">
-                <h4>UA Music player</h4>
-            </div>          
+    <div class="sidebar mobile-hidden">
+        <div class="sidebar-nav">
+            <div class="side-logo"><h4>UA Music Player</h4></div>
             <ul>
-                <li><a href="index.html">
-                    <span><i class="fa-solid fa-house"></i></span>
-                    <span>Home</span>
-                </a></li>
-                <li><a href="search2.php">
-                    <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <span>Search</span>
-                </a></li>
-                <li><a href="about page m.html">
-                    <span><i class="fa-solid fa-address-card"></i></span>
-                    <span>About Us</span>
-                </a></li>
-                <li><a href="artist.html">
-                    <span><i class="fa-solid fa-address-card"></i></span>
-                    <span>Artist</span>
-                </a></li>
-                <li><a href="year.html">
-                    <span><i class="fa-sharp fa-regular fa-calendar-days"></i></span>
-                    <span>Year</span>
-                </a></li>
-
-                <li><a href="album.html">
-                    <span><i class="fa-solid fa-address-card"></i></span>
-                    <span>Album</span>
-                </a></li>
-               
-                <li><a href="contact me.html">
-                    <span><i class="fa-regular fa-phone"></i></span>
-                    <span>Contact</span>
-                </a></li>
+                <li><a href="../index.html"><span><i class="fa-solid fa-house"></i></span><span>Home</span></a></li>
+                <li><a href="search2.php"><span><i class="fa-solid fa-magnifying-glass"></i></span><span>Search</span></a></li>
+                <li><a href="about page m.html"><span><i class="fa-solid fa-address-card"></i></span><span>About Us</span></a></li>
+                <li><a href="artist.html"><span><i class="fa-solid fa-address-card"></i></span><span>Artist</span></a></li>
+                <li><a href="year.html"><span><i class="fa-sharp fa-regular fa-calendar-days"></i></span><span>Year</span></a></li>
+                <li><a href="album.html"><span><i class="fa-solid fa-compact-disc"></i></span><span>Album</span></a></li>
+                <li><a href="contact.html"><span><i class="fa-regular fa-phone"></i></span><span>Contact</span></a></li>
             </ul>
         </div>
-            <ul>
-            </ul>
-    </div>     
-    <br>
-    <div  class="main-section">
+    </div>
+    <div class="page-overlay"></div>
+    <div class="main-section">
         <div class="top-nav">
-            <div class="prev-btn">
-                <button><i class="fa-solid fa-chevron-left"></i></button>
-                <button><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
+            <button class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+            <div class="top-logo">UA Music Player</div>
             <div class="login-btn">
-              <a href="#"><button class="sign-up">sign-up</button></a>
-               <a href="#"><button class="login">login</button></a>
+                <a href="signup.html"><button class="sign-up">Sign Up</button></a>
+                <a href="login.php"><button class="login">Login</button></a>
             </div>
         </div>
-     
-       <!-- ALBUM PAGE  -->
-    <div class="spotify">
-        <h4> Album</h4>
-        <div class="card">
-            <div class="item">
-               <a href="#"> <img src="https://i1.sndcdn.com/artworks-KsQJuzBDxvYc-0-t500x500.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
+
+        <div class="section-block spotify">
+            <h4>Top Albums</h4>
+            <div class="card">
+                <div class="item">
+                    <a href="#"><img src="https://i1.sndcdn.com/artworks-KsQJuzBDxvYc-0-t500x500.jpg" alt="Still Rolin"></a>
                     <h4>Still Rolin</h4>
-                    <br>
-                    <p>subha</p>
+                    <p>Subha</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
                 </div>
-            </div>
-            <div class="item">
-               <a href="#"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1ha4Wp8ujxzsd_rw5Qw7cJ0ruoUskAQk3QA&s" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
+                <div class="item">
+                    <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1ha4Wp8ujxzsd_rw5Qw7cJ0ruoUskAQk3QA&s" alt="Rockstar"></a>
                     <h4>Rockstar</h4>
-                    <br>
                     <p>Umair</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
                 </div>
-            </div>
-            <div class="item">
-               <a href="#"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwmMiQvRKCXYcQS8u3iG23AD7c9_BYRhmngw&s" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4> Memories</h4>
-                    <br>
+                <div class="item">
+                    <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwmMiQvRKCXYcQS8u3iG23AD7c9_BYRhmngw&s" alt="Memories"></a>
+                    <h4>Memories</h4>
                     <p>Karan Aujla</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
                 </div>
-               
-            </div>
-            <div class="item">
-              <a href="#">  <img src="https://upload.wikimedia.org/wikipedia/en/c/ca/Moosetape.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
+                <div class="item">
+                    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/en/c/ca/Moosetape.jpg" alt="Moosetape"></a>
                     <h4>Moosetape</h4>
-                    <br>
-                    <p>Sidhu Moosa wale</p>
+                    <p>Sidhu Moosa Wale</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="https://media.telanganatoday.com/wp-content/uploads/2023/12/Husn.png" alt="Husn"></a>
+                    <h4>Husn</h4>
+                    <p>Anuv Jain</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
                 </div>
             </div>
-        
-            <div class="item">
-              <a href="#">  <img src="https://media.telanganatoday.com/wp-content/uploads/2023/12/Husn.png" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4> Husn </h4>
-                    <br>
-                    <p>Anuv jain</p>
-                </div>
-            </div> 
-     </div>
-    
-       
-    </div>
-    <!-- ALBUM PAGE 2  -->
-    <div class="spotify">
-        
-        <div class="card">
-            <div class="item">
-                <a href="#"><img src="https://d3lzcn6mbbadaf.cloudfront.net/media/details/ANI-20240212145840.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>sajni re</h4>
-                    <br>
+        </div>
+
+        <div class="section-block spotify">
+            <h4>Popular Singles</h4>
+            <div class="card">
+                <div class="item">
+                    <a href="#"><img src="https://d3lzcn6mbbadaf.cloudfront.net/media/details/ANI-20240212145840.jpg" alt="Sajni Re"></a>
+                    <h4>Sajni Re</h4>
                     <p>Arijit Singh</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
                 </div>
-            </div>
-            <div class="item">
-                <a href="#"><img src="https://m.media-amazon.com/images/M/MV5BMDQwOTI3NTMtZjA0My00M2E3LThmODUtODdiNTQ3ZjNiNGE3XkEyXkFqcGdeQXVyNTM2NTg3Nzg@._V1_.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
+                <div class="item">
+                    <a href="#"><img src="https://m.media-amazon.com/images/M/MV5BMDQwOTI3NTMtZjA0My00M2E3LThmODUtODdiNTQ3ZjNiNGE3XkEyXkFqcGdeQXVyNTM2NTg3Nzg@._V1_.jpg" alt="Animal"></a>
                     <h4>Animal</h4>
-                   
-                    <br>
                     <p>Vishal Mishra</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
                 </div>
-               
-            </div>
-            <div class="item">
-               <a href="#"> <img src="https://i.ytimg.com/vi/0pWsCiBvLOk/sddefault.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>one love</h4>
-                    <br>
-                    <p>shubh</p>
-                </div>
-               
-            </div>
-            <div class="item">
-                <a href="#"><img src="https://i.scdn.co/image/ab67616d0000b2733c5d63cc9c4a2964befb7731" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>Open letter</h4>
-                    <br>
-                    <p>Talha anjum</p>
-                </div>
-            </div>
-        
-            <div class="item">
-               <a href="#"> <img src="https://i.scdn.co/image/ab67616d0000b2736404721c1943d5069f0805f3" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>Aashiqui 2</h4>
-                    <br>
-                    <p>Mithoon,Ankit Tiwari</p>
-                </div>
-            </div> 
-     </div>
-    </div>
-       <!-- ALBUM PAGE 3 -->
-       
-   
-    <div class="spotify">
-        
-        <div class="card">
-            <div class="item">
-               <a href="#"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLF-81mOPVwYNpDBZGxJp-pzgld9Wm3IhtrA&s" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>Naina</h4>
-                    <br>
-                    <p>Badshah,Diljit Dosanjh</p>
-                </div>
-            </div>
-            <div class="item">
-                <a href="#"><img src="https://c.saavncdn.com/569/Still-Rollin-Unknown-2023-20230527015701-500x500.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>Jiosaavn</h4>
-                   
-                    <br>
+                <div class="item">
+                    <a href="#"><img src="https://i.ytimg.com/vi/0pWsCiBvLOk/sddefault.jpg" alt="One Love"></a>
+                    <h4>One Love</h4>
                     <p>Shubh</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
                 </div>
-               
+                <div class="item">
+                    <a href="#"><img src="https://i.scdn.co/image/ab67616d0000b2733c5d63cc9c4a2964befb7731" alt="Open Letter"></a>
+                    <h4>Open Letter</h4>
+                    <p>Talha Anjum</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="https://i.scdn.co/image/ab67616d0000b2736404721c1943d5069f0805f3" alt="Aashiqui 2"></a>
+                    <h4>Aashiqui 2</h4>
+                    <p>Mithoon, Ankit Tiwari</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
+                </div>
             </div>
-            <div class="item">
-               <a href="#"> <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvpLIUCTaAs92VVq6Uoo9NqDtR7ssTMV4Su_bH9LkV4QoII06apQ07v1Oc_3Q7nfkb4gZbzKKOhtwxOFuoFLtp2-GsuiF5Gjjg3Z5pRD1peMQdqDr5Q7k-bRyd2pRk11ohgdPoZ5BTih4OKHTwUeD7ocY2WIv5wpyXviBDpkgMw6K3P4qLIH9WraVmIA/s1280/Jhol%20Lyrics%20Maanu%20x%20Annural%20Khalid%20Coke%20Studio%20Pakistan%20Season%2015.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
+        </div>
+
+        <div class="section-block spotify">
+            <div class="card">
+                <div class="item">
+                    <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLF-81mOPVwYNpDBZGxJp-pzgld9Wm3IhtrA&s" alt="Naina"></a>
+                    <h4>Naina</h4>
+                    <p>Badshah, Diljit Dosanjh</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="https://c.saavncdn.com/569/Still-Rollin-Unknown-2023-20230527015701-500x500.jpg" alt="Jiosaavn"></a>
+                    <h4>Jiosaavn</h4>
+                    <p>Shubh</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvpLIUCTaAs92VVq6Uoo9NqDtR7ssTMV4Su_bH9LkV4QoII06apQ07v1Oc_3Q7nfkb4gZbzKKOhtwxOFuoFLtp2-GsuiF5Gjjg3Z5pRD1peMQdqDr5Q7k-bRyd2pRk11ohgdPoZ5BTih4OKHTwUeD7ocY2WIv5wpyXviBDpkgMw6K3P4qLIH9WraVmIA/s1280/Jhol%20Lyrics%20Maanu%20x%20Annural%20Khalid%20Coke%20Studio%20Pakistan%20Season%2015.jpg" alt="Jhol"></a>
                     <h4>Jhol</h4>
-                    <br>
-                    <p>Maanu,Annural khalid</p>
+                    <p>Maanu, Annural Khalid</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
                 </div>
-               
-            </div>
-            <div class="item">
-               <a href="#"> <img src="https://i.scdn.co/image/ab67616d0000b2739bb2d30b01ac2cada8a8ad03" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
+                <div class="item">
+                    <a href="#"><img src="https://i.scdn.co/image/ab67616d0000b2739bb2d30b01ac2cada8a8ad03" alt="Ek tha Raja"></a>
                     <h4>Ek tha Raja</h4>
-                    <br>
                     <p>Badshah</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
+                </div>
+                <div class="item">
+                    <a href="#"><img src="https://i.ytimg.com/vi/-urTPhh7gNk/maxresdefault.jpg" alt="Block Buster"></a>
+                    <h4>Block Buster</h4>
+                    <p>Faris Shafi, Umair Butt</p>
+                    <div class="play-btn"><span><i class="fa-solid fa-play"></i></span></div>
                 </div>
             </div>
-        
-            <div class="item">
-               <a href="#"> <img src="https://i.ytimg.com/vi/-urTPhh7gNk/maxresdefault.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>Block buster</h4>
-                    <br>
-                    <p>Faris Shafi,Umair Butt</p>
-                </div>
-            </div> 
-     </div>
-    
-       <!-- ALBUM PAGE 4 -->
+        </div>
     </div>
-    <div class="spotify">
-       
-        <div class="card">
-            <div class="item">
-               <a href="#"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO9z2U_0N-iJXMIehUXjd7J1XRxSNxYhUvCA&s" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>WinningSpeech</h4>
-                    <br>
-                    <p>Karan aujla,Mxrci</p>
-                </div>
-            </div>
-            <div class="item">
-               <a href="#"> <img src="https://lastfm.freetls.fastly.net/i/u/500x500/09adae4faf373fb9f811bf773c26beff.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>Doorie</h4>
-                   
-                    <br>
-                    <p>Atif Aslam</p>
-                </div>
-               
-            </div>
-            <div class="item">
-              <a href="#">  <img src="https://i.ytimg.com/vi/NDJ-1FK1c_k/maxresdefault.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>OneBottleDown</h4>
-                    <br>
-                    <p>Karan Aujla</p>
-                </div>
-               
-            </div>
-            <div class="item">
-                <a href="#"><img src="https://i.ytimg.com/vi/jdvdkGwodAY/maxresdefault.jpg" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>Chan ve</h4>
-                    <br>
-                    <p>Ali Zafar</p>
-                </div>
-            </div>
-        
-            <div class="item">
-               <a href="#"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7zEyJH_BUIPeY_rpo_ZYjDGwixAHbroT5Bw&s" alt=""></a>
-                <div class="play-btn">
-                    <span><i class="fa-solid fa-play"></i></span>
-                    <h4>Yeh Zingadi</h4>
-                    <br>
-                    <p>Rahat Fateh Ali Khan</p>
-                </div>
-            </div> 
-     </div>
-    
-       
-    </div>
-    <!-- ALBUM PAGE end -->
-</div>
-   
-   
-   
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const pageOverlay = document.querySelector('.page-overlay');
+        const menuIcon = menuToggle ? menuToggle.querySelector('i') : null;
+
+        if (menuToggle && sidebar && pageOverlay && menuIcon) {
+            const closeMenu = () => {
+                sidebar.classList.remove('sidebar-open');
+                pageOverlay.classList.remove('visible');
+                menuToggle.classList.remove('open');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-xmark');
+            };
+
+            const openMenu = () => {
+                sidebar.classList.add('sidebar-open');
+                pageOverlay.classList.add('visible');
+                menuToggle.classList.add('open');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            };
+
+            menuToggle.addEventListener('click', () => {
+                if (sidebar.classList.contains('sidebar-open')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+
+            pageOverlay.addEventListener('click', closeMenu);
+        }
+
+        document.querySelectorAll('.item').forEach(item => {
+            const link = item.querySelector('a');
+            if (!link) return;
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', e => {
+                if (e.target.closest('.play-btn')) return;
+                window.location.href = link.href;
+            });
+        });
+    </script>
 </body>
 </html>

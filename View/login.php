@@ -1,118 +1,152 @@
+<?php
+session_start();
+
+$connect = mysqli_connect("localhost", "root", "", "music");
+if (!$connect) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$error = '';
+if (isset($_POST['login'])) {
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $select = "SELECT * FROM newusers WHERE email = '" . mysqli_real_escape_string($connect, $email) . "' AND password = '" . mysqli_real_escape_string($connect, $password) . "'";
+    $result = mysqli_query($connect, $select);
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $_SESSION['email'] = $row['email'];
+        header("Location: ../index.html");
+        exit();
+    } else {
+        $error = 'Email or password is incorrect.';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- bootstrap links   -->
-    <link rel="stylesheet" href="styling/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <!-- bootstrap links   -->
-     <!-- font links  -->
+    <title>Login | UA Music Player</title>
+    <link rel="stylesheet" href="../Styling/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-     <!-- font links  -->
-      <style>
-        *{
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #121212;
-            color: white;
-            font: poppins;
-            font-weight: 500;
+            background: #0e0d0d;
+            color: #fff;
+            font-family: "Poppins", sans-serif;
         }
-        .next{
-            background-color: #1FDF64;
+        .auth-shell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px;
         }
-        .next span{
-            background-color: #1FDF64;
-            color: #000000;
+        .auth-card {
+            width: 100%;
+            max-width: 420px;
+            background: #171616;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
         }
-        .privacy{
-            font-size:14px ;
+        .auth-card h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
-        .privacy a{
-            color: white;
+        .auth-card p {
+            color: #c9c9c9;
+            margin-bottom: 24px;
+            line-height: 1.5;
         }
-       .login{
-        color: white;
-       }
-       .gray{
-        color: #A7A7A7;
-        font-size: 17px;
-       }
-       .border{
-        border: 2px solid white;
-       }
-      </style>
+        .auth-card label {
+            display: block;
+            margin-bottom: 10px;
+            color: #e6e6e6;
+            font-size: 0.95rem;
+        }
+        .auth-card input {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #111;
+            color: #fff;
+        }
+        .auth-card input:focus {
+            outline: none;
+            border-color: #1fdf64;
+            box-shadow: 0 0 0 4px rgba(31, 223, 100, 0.12);
+        }
+        .auth-card .btn-primary {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 999px;
+            border: none;
+            background: #1fdf64;
+            color: #000;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .auth-card .btn-primary:hover {
+            background: #18c957;
+        }
+        .auth-card .link-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        .auth-card .link-row a {
+            color: #1fdf64;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .auth-card .error-message {
+            margin-top: 10px;
+            color: #ff6b6b;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 520px) {
+            .auth-card {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="d-flex justify-content-center p-4 pb-6">
-                <h1>Log in to Spotify</h1>
-            </div>
-            <div class="d-flex justify-content-center col-12">
-                <!-- <div class="border"> -->
-                    <form class="d-flex flex-column col-md-4" action="" method="post">
-                        <!-- login options  -->
-                        <button class="border p-2 mb-2 rounded-pill"><a class="text-decoration-none text-light" href=""><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22.1 12.2272C22.1 11.5182 22.0364 10.8363 21.9182 10.1818H12.5V14.05H17.8818C17.65 15.3 16.9455 16.3591 15.8864 17.0682V19.5772H19.1182C21.0091 17.8363 22.1 15.2727 22.1 12.2272Z" fill="#4285F4"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12.4998 21.9999C15.1998 21.9999 17.4635 21.1045 19.118 19.5772L15.8862 17.0681C14.9907 17.6681 13.8453 18.0227 12.4998 18.0227C9.89529 18.0227 7.69075 16.2636 6.90439 13.8999H3.56348V16.4908C5.20893 19.759 8.59075 21.9999 12.4998 21.9999Z" fill="#34A853"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M6.90455 13.9C6.70455 13.3 6.59091 12.6591 6.59091 12C6.59091 11.3409 6.70455 10.7 6.90455 10.1V7.50909H3.56364C2.88636 8.85909 2.5 10.3864 2.5 12C2.5 13.6136 2.88636 15.1409 3.56364 16.4909L6.90455 13.9Z" fill="#FBBC05"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12.4998 5.97727C13.968 5.97727 15.2862 6.48182 16.3226 7.47273L19.1907 4.60455C17.4589 2.99091 15.1953 2 12.4998 2C8.59075 2 5.20893 4.24091 3.56348 7.50909L6.90439 10.1C7.69075 7.73636 9.89529 5.97727 12.4998 5.97727Z" fill="#EA4335"></path></svg>Sign up with Google</a></button>
-                        <button class="border p-2 mb-2 rounded-pill"><a class="text-decoration-none text-light" href=""><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12.5" cy="12" r="10" fill="white"></circle><path d="M22.5 12C22.5 6.477 18.023 2 12.5 2C6.977 2 2.5 6.477 2.5 12C2.5 16.991 6.157 21.128 10.938 21.878V14.891H8.398V12H10.938V9.797C10.938 7.291 12.43 5.907 14.715 5.907C15.808 5.907 16.953 6.102 16.953 6.102V8.562H15.693C14.45 8.562 14.063 9.333 14.063 10.125V12H16.836L16.393 14.89H14.063V21.878C18.843 21.128 22.5 16.991 22.5 12Z" fill="#1877F2"></path></svg>Sign up with Facebook</a></button>
-                        <button class="border p-2 mb-2 rounded-pill"><a class="text-decoration-none text-light" href=""><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.195 4.513C15.873 3.69 16.351 2.567 16.351 1.433C16.351 1.278 16.341 1.123 16.318 1C15.206 1.044 13.872 1.734 13.083 2.668C12.449 3.379 11.871 4.513 11.871 5.647C11.871 5.825 11.905 5.991 11.916 6.047C11.982 6.058 12.094 6.08 12.216 6.08C13.206 6.08 14.45 5.413 15.195 4.513ZM15.973 6.313C14.317 6.313 12.961 7.325 12.093 7.325C11.171 7.325 9.97 6.38 8.525 6.38C5.779 6.38 3 8.648 3 12.918C3 15.586 4.023 18.398 5.301 20.211C6.391 21.744 7.347 23 8.725 23C10.081 23 10.682 22.1 12.371 22.1C14.083 22.1 14.472 22.978 15.973 22.978C17.463 22.978 18.453 21.61 19.397 20.265C20.442 18.72 20.887 17.219 20.897 17.142C20.809 17.119 17.963 15.952 17.963 12.695C17.963 9.871 20.198 8.604 20.331 8.504C18.852 6.381 16.596 6.314 15.973 6.314V6.313Z" fill="white"></path></svg>Sign up with Apple</a></button>
-                        <hr class="m-5">
-                        <label for="">Email address</label>
-                        <input class="p-2  rounded-1 mt-2 mb-3" name="email" type="email" placeholder="name@domain.com">
-                        <label for="">Password</label>
-                        <input class="p-2  rounded-1 mt-2 mb-5" name="password" type="text" placeholder="Password">
-                        
-                        <button type="submit" name="login" class="p-2 mb-2 next rounded-pill"><span>Next</span></button>
-                    </form>
-                </div>
-                <footer class="footer">
-
-                    <p class="text-center gray mt-3">Create an account? <a class="login" href="signup.html">Sign Up here.</a></p>
-                    <p class="text-center gray">This site is protected by reCAPTCHA and the Google</p>
-                    <p class="privacy text-center gray"><a class="" href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service </a> apply.</p>
-                </footer>
+    <div class="auth-shell">
+        <div class="auth-card">
+            <h1>Welcome back</h1>
+            <p>Log in and continue enjoying your favorite music on UA Music Player.</p>
+            <form action="" method="post">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" placeholder="name@domain.com" required>
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Password" required>
+                <button type="submit" name="login" class="btn-primary">Continue</button>
+            </form>
+            <?php if (!empty($error)): ?>
+                <p class="error-message"><?php echo htmlspecialchars($error); ?></p>
+            <?php endif; ?>
+            <div class="link-row">
+                <span class="gray">Need an account?</span>
+                <a href="signup.html">Sign up</a>
             </div>
         </div>
-</div>
+    </div>
 </body>
 </html>
-
-
-<?php
-session_start();
-
-$connect = mysqli_connect("localhost", "root", "", "music");
-
-if (!$connect) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-if (isset($_POST['login'])) {
-    $email = $_POST['email'];
-    $password =$_POST['password'];
-
-    $select="SELECT * FROM newusers WHERE email = '{$email}' AND password = '{$password}'";
-    $result = mysqli_query($connect ,$select);
-    
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $_SESSION['email'] = $row['email'];
-        $_SESSION['password'] = $row['password'];
-        echo 'User and password match';
-
-        header("Location:index.html");
-        exit();
-    } else {
-        header("Location:login.html");
-        echo 'User and password do not match';
-    }
-}
-?>
